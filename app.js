@@ -11,7 +11,7 @@ var express = require("express"),
     Comment = require("./models/comment"),
     seedDB = require("./seeds"),
     flash = require("connect-flash");
-    
+
 var commentRoutes = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes = require("./routes/index");
@@ -24,6 +24,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
+app.locals.moment = require('moment');
 // seedDB();    //seed the database
 
 // PASSPORT CONFIGURATION
