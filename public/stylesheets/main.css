@@ -28,12 +28,6 @@
   border-top-right-radius: 0;
 }
 
-@media (max-width: 650px) {
-  body {
-        background-color: lightgreen;
-  }
-}
-
 .col-md-9 .card-body {
     padding: 9px;
 }
