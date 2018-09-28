@@ -35,3 +35,8 @@
 .delete-form {
     display: inline;
 }
+
+/*.navbar-nav li.active > a {*/
+/*	background-color: #007bff;*/
+/*	color: #fff;*/
+/*}*/
