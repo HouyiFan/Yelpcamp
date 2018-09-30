@@ -3,7 +3,11 @@ var campgroundSchema = new mongoose.Schema({
     name: String,
     price: String,
     image: String,
+    imageId: String,
     description: String,
+    location: String,
+    lat: Number,
+    lng: Number, 
     createdAt: { type: Date, default: Date.now },
     author: {
         id: {
@@ -17,9 +21,6 @@ var campgroundSchema = new mongoose.Schema({
         ref: "Comment"
     }]
 });
-
-// 5b96cb0e46536812a9d205fa
-// 5b96cb9d8a883812d63e89be
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 module.exports = Campground;
