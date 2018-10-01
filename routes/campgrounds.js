@@ -38,14 +38,31 @@ cloudinary.config({
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
-   // get all campgrounds from DB
-   Campground.find({}, function(err, allcampgrounds){
-       if(err){
-           console.log(err);
-       }else{
-           res.render("campgrounds/index", {campgrounds: allcampgrounds, currentUser: req.user, page: "campgrounds"});
-       }
-   });
+    // eval(require("locus"));
+    if(req.query.search){
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        // get all campgrounds from DB
+        Campground.find({name: regex}, function(err, allcampgrounds){
+           if(err){
+               console.log(err);
+           }else{
+               if(allcampgrounds.length < 1){
+                   req.flash("error", "No match found");
+                   return res.redirect("back");
+               }
+               res.render("campgrounds/index", {campgrounds: allcampgrounds, currentUser: req.user, page: "campgrounds"});
+           }
+        });
+    } else {
+        // get all campgrounds from DB
+        Campground.find({}, function(err, allcampgrounds){
+           if(err){
+               console.log(err);
+           }else{
+               res.render("campgrounds/index", {campgrounds: allcampgrounds, currentUser: req.user, page: "campgrounds"});
+           }
+        });
+    }
 });
 
 //CREATE - add new campground to DB
@@ -246,5 +263,9 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
     }
   });
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;
