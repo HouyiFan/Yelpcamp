@@ -34,5 +34,13 @@
     </div>
 <!--</div>-->
 
+<script>
+    function autoComplete(){
+        var input = document.getElementById("location");
+        var autocomplete = new google.maps.places.Autocomplete(input);
+    }
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA58JWy2tNMBZ1t5GRrXUHg2PmMdOwnQ78&libraries=places&callback=autoComplete"></script>
+
 
 <% include ../partials/footer %>
