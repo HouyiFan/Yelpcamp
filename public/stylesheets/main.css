@@ -60,3 +60,24 @@
 #edit-profile-button {
   margin-top: 10px;
 }
+
+#no-comment {
+  color: grey;
+}
+
+.comment-owner {
+  color: orange;
+}
+
+#add-comment-card {
+  border-left: 5px solid #00C851;
+}
+
+#edit-comment-card {
+  border-left: 5px solid #ffbb33; 
+  margin-top: 15px;
+}
+
+#login-warning-addcomment {
+  border-left: 5px solid;
+}
