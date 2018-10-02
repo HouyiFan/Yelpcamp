@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+<!--<div class="container">-->
+    
+    <div class="row">
+        <div class="card-body">
+            <h1 style="text-align: center">Update the Profile</h1>
+            <div style="width:30%; margin: 25px auto;">
+                <form action="/users/<%= user._id %>?_method=PUT" method="POST">
+                    <div class="form-group">
+                        <label for="first-name" class="sr-only">First Name</label>
+                        <input type="text" id="first-name" class="form-control" name="user[firstName]" placeholder="First Name" value="<%= user.firstName %>" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name" class="sr-only">Last Name</label>
+                        <input type="text" id="last-name" class="form-control" name="user[lastName]" placeholder="Last Name" value="<%= user.lastName %>" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" class="form-control" name="user[email]" placeholder="Email" value="<%= user.email %>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar" class="sr-only">Avatar</label>
+                        <input type="url" id="avatar" class="form-control" name="user[avatar]" placeholder="avatar url" value="<%= user.avatar %>">
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </form>
+                <a href="/users/<%= user._id %>">Go Back</a>
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+
+<% include ../partials/footer %>

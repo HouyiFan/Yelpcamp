@@ -2,13 +2,26 @@
 
 <div class="row">
 	<div class="col-md-4">
-			<h1><%= user.username %></h1>
 		<div class="card">
-			<img class="card-img-top" src="<%= user.avatar %>" alt="user profile image">
-            <div class="card-body">
-                <div class="card-link"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
-            </div>
+			<div class="card-header"><%= user.firstName + " " + user.lastName %></div>
+			<% if (user.avatar !== undefined && user.avatar !== "") { %>
+					<img class="card-img-top" src="<%= user.avatar %>" alt="user profile image">
+					<div class="card-body">
+	                	<div class="card-link">Email: <a href="mailto:<%= user.email %>" class="btn btn-sm btn-info"><%= user.email %></a></div>
+	                	<p></p>
+	            	</div>
+			<% } else { %>
+				<div class="card-text">This user doesn't have an avatar</div>
+	        	<div class="card-link">Email: <a href="mailto:<%= user.email %>" class="btn btn-sm btn-info"><%= user.email %></a></div>
+			<% } %>
 		</div>
+			<% if (currentUser && user._id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+				<div id="edit-profile-button"><a class="btn btn-sm btn-warning" 
+	                            href="/users/<%= user._id %>/edit">
+	                                Edit Profile
+				            </a>
+				</div>
+	        <% } %>
 	</div>
 	<div class="col-md-8">
 		<h3><%= user.username %>'s campgrounds:</h3>
