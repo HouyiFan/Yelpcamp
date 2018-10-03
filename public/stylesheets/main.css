@@ -81,3 +81,7 @@
 #login-warning-addcomment {
   border-left: 5px solid;
 }
+
+.checked {
+    color: orange;
+}

@@ -26,6 +26,21 @@
                     <img class="card-img-top" src="<%= campground.image %>" alt="<%= campground.name %>">
                     <div class="card-body">
                         <h5 class="card-title"><%= campground.name %></h5>
+                        <div class="card-text">
+                            <% if (campground.rating === 0) { %>
+                            <h5>
+                                <em>No reviews yet.</em>
+                            </h5>
+                            <% } else { %>
+                            <p>
+                                <i class="fas fa-star checked"></i>
+                                <i class="fas fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></i>
+                                <i class="fas fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></i>
+                                <i class="fas fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></i>
+                                <i class="fas fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></i>
+                            </p>
+                            <% } %>
+                        </div>
                     </div>
                     <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
                 </div>

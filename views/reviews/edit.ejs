@@ -1,0 +1,101 @@
+<% include ../partials/header %>
+    <div class="row">
+        <h1 style="text-align: center">Edit Review</h1>
+        <div style="width: 30%; margin: 25px auto;">
+            <form action="/campgrounds/<%= campground_id %>/reviews/<%= review._id %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="rating">Leave a rating:</label>
+                    <fieldset class="starability-coinFlip" id="rating">
+                        <input type="radio" id="coinFlip-rate1" name="review[rating]" value="1" 
+                        <% if (review.rating === 5) { %>
+                            checked 
+                        <% } %> />
+                        <label for="coinFlip-rate1" title="Terrible">1 star</label>
+                
+                        <input type="radio" id="coinFlip-rate2" name="review[rating]" value="2" 
+                        <% if (review.rating === 5) { %>
+                            checked 
+                        <% } %> />
+                        <label for="coinFlip-rate2" title="Not good">2 stars</label>
+                
+                        <input type="radio" id="coinFlip-rate3" name="review[rating]" value="3" 
+                        <% if (review.rating === 5) { %>
+                            checked 
+                        <% } %> />
+                        <label for="coinFlip-rate3" title="Average">3 stars</label>
+                
+                        <input type="radio" id="coinFlip-rate4" name="review[rating]" value="4" 
+                        <% if (review.rating === 4) { %>
+                            checked 
+                        <% } %> />
+                        <label for="coinFlip-rate4" title="Very good">4 stars</label>
+                
+                        <input type="radio" id="coinFlip-rate5" name="review[rating]" value="5" 
+                        <% if (review.rating === 5) { %>
+                            checked 
+                        <% } %> />
+                        <label for="coinFlip-rate5" title="Amazing">5 stars</label>
+                
+                        <span class="starability-focus-ring"></span>
+                    </fieldset>
+                    <!--<fieldset class="starability-coinFlip form-group" id="rating">-->
+                    <!--<div>-->
+                    <!--    <label for="first-rate5" title="5 stars - Amazing">-->
+                    <!--        <%- '<i class="fas fa-star checked"></i>'.repeat(5) %>-->
+                    <!--    </label>-->
+                    <!--    <input type="radio" id="first-rate5" name="review[rating]" value="5" -->
+                    <!--    <% if (review.rating === 5) { %> -->
+                    <!--        checked -->
+                    <!--    <% } %> />-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--    <label for="first-rate4" title="4 stars - Very good">-->
+                    <!--        <%- '<i class="fas fa-star checked"></i>'.repeat(4) %>-->
+                    <!--    </label>-->
+                    <!--    <input type="radio" id="first-rate4" name="review[rating]" value="4" -->
+                    <!--    <% if (review.rating === 4) { %> -->
+                    <!--        checked -->
+                    <!--    <% } %> />-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--    <label for="first-rate3" title="3 stars - Average">-->
+                    <!--        <%- '<i class="fas fa-star checked"></i>'.repeat(3) %>-->
+                    <!--    </label>-->
+                    <!--    <input type="radio" id="first-rate3" name="review[rating]" value="3" -->
+                    <!--    <% if (review.rating === 3) { %> -->
+                    <!--        checked -->
+                    <!--    <% } %> />-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--    <label for="first-rate2" title="2 stars - Not good">-->
+                    <!--        <%- '<i class="fas fa-star checked"></i>'.repeat(2) %>-->
+                    <!--    </label>-->
+                    <!--    <input type="radio" id="first-rate2" name="review[rating]" value="2" -->
+                    <!--    <% if (review.rating === 2) { %> -->
+                    <!--        checked -->
+                    <!--    <% } %> />-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--    <label for="first-rate1" title="1 star - Terrible">-->
+                    <!--        <%- '<i class="fas fa-star checked"></i>'.repeat(1) %>-->
+                    <!--    </label>-->
+                    <!--    <input type="radio" id="first-rate1" name="review[rating]" value="1" -->
+                    <!--    <% if (review.rating === 1) { %> -->
+                    <!--        checked -->
+                    <!--    <% } %> />-->
+                    <!--</div>-->
+                        
+                    <!--</fieldset>-->
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" type="text" name="review[text]" placeholder="Write a review for this campground..." rows="5" cols="70"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Submit a Review</button>
+                </div>
+            </form>
+            </form>
+            <a href="/campgrounds/<%= campground_id %>">Go Back</a>
+        </div>
+    </div>
+<% include ../partials/footer %>
