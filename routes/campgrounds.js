@@ -232,6 +232,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single('image'), 
                         return res.redirect("back");
                     }
                 }
+                foundCampground.location = req.body.location;
                 foundCampground.name = req.body.campground.name;
                 foundCampground.price = req.body.campground.price;
                 foundCampground.description = req.body.campground.description;
