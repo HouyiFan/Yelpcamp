@@ -54,9 +54,16 @@ router.put("/:id", middleware.checkUserOwnership, function(req, res){
             
             foundUser.email = req.body.user.email;
             foundUser.avatar = req.body.user.avatar;
-            foundUser.save();
-            req.flash("success", "Successfully Updated!");
-            res.redirect("/users/" + req.params.id);
+            foundUser.save(function(err){
+              if(err){
+                req.flash("error", "Email already exists");
+                res.redirect("back");
+              }else{
+                req.flash("success", "Successfully Updated!");
+                res.redirect("/users/" + req.params.id);
+              }
+            });
+            
         }
     });
 });
